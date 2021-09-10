@@ -1,0 +1,76 @@
+@import "~bootstrap/scss/bootstrap";
+
+// * Nav Bar
+
+.nav-bar-border {
+  border-bottom: black 2px solid;
+}
+
+// * Footer
+
+.footer-border {
+  border-top: black 2px solid;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: large;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: center!important;
+}
+
+// * Home
+
+.no-pad {
+  padding: 0!important;
+}
+
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 85vh;
+  background-color: grey;
+  width: 100%;
+}
+
+.title-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.info-wrap {
+  display: flex;
+}
+
+.promo-text-box {
+  border: black 2px solid;
+  height: 300px;
+  width: 500px;
+  margin: 20px;
+  background-color: lightgray;
+}
+
+// * Register
+
+.register {
+  margin-top: 50px;
+}
+
+// * Login
+
+.login {
+  margin-top: 50px;
+}
