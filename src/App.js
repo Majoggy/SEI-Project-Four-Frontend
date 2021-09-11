@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { getAllGames } from './lib/api'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { isAuthenticated } from './lib/auth'
@@ -15,15 +14,6 @@ import Dashboard from './components/common/Dashboard'
 function App() {
 
   const [loggedIn, setLoggedIn] = React.useState(isAuthenticated())
-
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await getAllGames()
-      console.log(res.data)
-    }
-    getData()
-  })
-
 
   return (
     <BrowserRouter>

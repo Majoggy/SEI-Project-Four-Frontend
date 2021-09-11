@@ -74,3 +74,63 @@ align-items: center;
 .login {
   margin-top: 50px;
 }
+
+// * Dashboard
+
+.game-box {
+  border: 2px black solid;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 0.5ch;
+}
+
+.dash-wrap {
+  display: flex;
+  height: 85vh;
+  background-color: grey;
+
+  .dash-left {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+
+    .button-wrap {
+      padding: 20px;
+      margin: 20px;
+      width: 75%;
+      height:10%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .game-list-wrap {
+      border: black 2px solid;
+      padding: 10px;
+      margin: 10px;
+      width: 90%;
+      height: 80%;
+      border-radius: 0.5ch;
+      background-color: lightgray;
+    }
+  }
+
+  .dash-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+
+    .leaderboard-wrap {
+      height: 90%;
+      padding: 10px;
+      margin: 10px;
+      width: 90%;
+      border-radius: 0.5;
+      background-color: lightgray;
+      border: 2px black solid;
+    }
+  }
+}
