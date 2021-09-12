@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function GameList({ games }) {
 
   return (

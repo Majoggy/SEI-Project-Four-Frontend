@@ -1,20 +1,21 @@
 import React from 'react'
-import { Button, Container } from 'react-bootstrap'
-import { getAllGames } from '../../lib/api'
+import { Button } from 'react-bootstrap'
+import { getAllGames, getAllPlayers } from '../../lib/api'
 
 import GameList from './GameList'
 import Leaderboard from './Leaderboard'
 
 function Dashboard() {
-
   const [games, setGames] = React.useState(null)
+  const [players, setPlayers] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getAllGames()
-        setGames(res.data)
-        console.log(games)
+        const gameRes = await getAllGames()
+        const playerRes = await getAllPlayers()
+        setGames(gameRes.data)
+        setPlayers(playerRes.data)
       } catch (err) {
         console.log(err)
       }
@@ -39,7 +40,7 @@ function Dashboard() {
       </div>
       <div className="dash-right">
         <section className="leaderboard-wrap">
-          <Leaderboard games={games}/>
+          <Leaderboard games={games} players={players}/>
         </section>
       </div>
     </div>

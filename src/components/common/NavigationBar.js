@@ -1,11 +1,9 @@
 import React from 'react'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
-
 import { removeToken } from '../../lib/auth'
 
 function NavigationBar({ loggedIn }) {
-
   const history = useHistory()
 
   const handleLogout = () => {

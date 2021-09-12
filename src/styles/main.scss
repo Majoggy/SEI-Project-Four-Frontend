@@ -131,6 +131,8 @@ align-items: center;
       border-radius: 0.5;
       background-color: lightgray;
       border: 2px black solid;
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 }
