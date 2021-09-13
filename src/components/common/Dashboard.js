@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { getAllGames, getAllPlayers } from '../../lib/api'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router'
 
 import GameList from './GameList'
 import Leaderboard from './Leaderboard'
@@ -9,7 +10,6 @@ import Leaderboard from './Leaderboard'
 function Dashboard() {
   const [games, setGames] = React.useState(null)
   const [players, setPlayers] = React.useState(null)
-  const history = useHistory()
 
   React.useEffect(() => {
     const getData = async () => {
@@ -25,20 +25,22 @@ function Dashboard() {
     getData()
   }, [])
 
-  const handleClick = () => {
-    history.push('/addplayer')
-  }
+  useLocation()
 
   return (
     <div className="dash-wrap">
       <div className="dash-left">
         <section className="button-wrap">
-          <Button className="button-height" variant="dark" size="lg" onClick={handleClick}>
+          <Link to="/addplayer">
+            <Button className="button-height" variant="dark" size="lg" name="">
             Add Player
-          </Button>
-          <Button className="button-height" variant="dark" size="lg">
-            Add Game
-          </Button>
+            </Button>
+          </Link>
+          <Link to="/addgame" players={players}>
+            <Button className="button-height" variant="dark" size="lg">
+              Add Game
+            </Button>
+          </Link>
         </section>
         <section className="game-list-wrap">
           <GameList games={games}/>

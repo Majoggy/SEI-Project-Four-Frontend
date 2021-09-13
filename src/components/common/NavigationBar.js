@@ -18,8 +18,18 @@ function NavigationBar() {
   return (
     <Navbar className="py-5 nav-bar-border" bg="light" expand="lg">
       <Container>
-        <Navbar.Brand className="bold" href="/">My Home Game Tracker</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        {!isAuth &&
+        <>
+          <Navbar.Brand className="bold" href="/">My Home Game Tracker</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        </>
+        }
+        {isAuth &&
+        <>
+          <Navbar.Brand className="bold" href="/dashboard">My Home Game Tracker</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        </>
+        }
 
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           {!isAuth &&

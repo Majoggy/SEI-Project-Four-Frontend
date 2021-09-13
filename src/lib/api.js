@@ -63,7 +63,7 @@ export function getSingleGame(gameId) {
 }
 
 export function createGame(formData) {
-  return axios.post('/api/games/', formData())
+  return axios.post('/api/games/', formData)
 }
 
 export function editGame(gameId, formData) {

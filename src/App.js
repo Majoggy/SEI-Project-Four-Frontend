@@ -10,6 +10,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Dashboard from './components/common/Dashboard'
 import PlayerAdd from './components/common/PlayerAdd'
+import GameAdd from './components/common/GameAdd'
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <SecureRoute path="/addplayer">
           <PlayerAdd />
+        </SecureRoute>
+        <SecureRoute path="/addgame">
+          <GameAdd />
         </SecureRoute>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

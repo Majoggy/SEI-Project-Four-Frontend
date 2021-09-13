@@ -44,7 +44,7 @@ export function statify(games, players) {
       const first = game.firstPlace.name
       const second = game.secondPlace.name
       const third = game.thirdPlace.name
-      const fourth = (typeof(game.fourthPlace) === undefined) ? noOne : game.fourthPlace.name
+      const fourth = (game.fourthPlace === null) ? noOne : game.fourthPlace.name
       const fifth = (game.fifthPlace === null) ? noOne : game.fifthPlace.name
       const sixth = (game.sixthPlace === null) ? noOne : game.sixthPlace.name
       const seventh = (game.seventhPlace === null) ? noOne : game.seventhPlace.name
