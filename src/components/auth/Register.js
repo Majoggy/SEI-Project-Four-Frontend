@@ -28,7 +28,7 @@ function Register() {
     e.preventDefault()
     try {
       await registerUser(formData)
-      history.push('/')
+      history.push('/dashboard')
     } catch (err) {
       setFormErrors(err.response.data)
     }

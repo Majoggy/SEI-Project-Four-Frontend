@@ -7,8 +7,7 @@ function Leaderboard({ games, players }) {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const statData = await statify(games, players)
-        setPlayerStats(statData)
+        setPlayerStats(statify(games, players))
       } catch (err) {
         console.log(err)
       }

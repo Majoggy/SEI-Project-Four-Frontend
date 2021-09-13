@@ -1,15 +1,13 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Form, Button, Container, Col, Row } from 'react-bootstrap'
+import { createPlayer } from '../../lib/api'
 
-import { loginUser } from '../../lib/api'
-import { setToken } from '../../lib/auth'
-
-function Login() {
+function PlayerAdd() {
 
   const initialState = {
-    username: '',
-    password: '',
+    name: '',
+    image: '',
   }
 
   const history = useHistory()
@@ -20,13 +18,13 @@ function Login() {
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     setFormErrors({ ...formErrors, [e.target.name]: '' })
+    console.log(formData)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await loginUser(formData)
-      setToken(data.token)
+      await createPlayer(formData)
       history.push('/dashboard')
     } catch (err) {
       setIsError(true)
@@ -40,34 +38,34 @@ function Login() {
           <Col className="outer-col"></Col>
           <Col xs={6} className="form-vertical-align">
             <Form onSubmit={handleSubmit}>
-              <h4>Login</h4>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
+              <h4>Player Add</h4>
+              <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter username"
-                  name="username"
+                  placeholder="Player Name"
+                  name="name"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label>Image (optional)</Form.Label>
                 <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  name="password"
+                  type="text"
+                  placeholder="Player Image"
+                  name="image"
                   onChange={handleChange}
                 />
               </Form.Group>
               <Form.Group className="mb-3">
                 {isError && (
                   <Form.Text className="text-muted">
-                    Either username or password were incorrect.
+                    Player name already in use, please choose another.
                   </Form.Text>
                 )}
               </Form.Group>
               <Button variant="secondary" type="submit">
-                Login
+                Create Player
               </Button>
             </Form>
           </Col>
@@ -78,4 +76,4 @@ function Login() {
   )
 }
 
-export default Login
+export default PlayerAdd

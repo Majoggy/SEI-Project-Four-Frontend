@@ -41,7 +41,7 @@ export function getSinglePlayer(playerId) {
 }
 
 export function createPlayer(formData) {
-  return axios.post('/api/players/', formData())
+  return axios.post('/api/players/', formData)
 }
 
 export function editPlayer(playerId, formData) {

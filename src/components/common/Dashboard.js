@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { getAllGames, getAllPlayers } from '../../lib/api'
+import { useHistory } from 'react-router-dom'
 
 import GameList from './GameList'
 import Leaderboard from './Leaderboard'
@@ -8,6 +9,7 @@ import Leaderboard from './Leaderboard'
 function Dashboard() {
   const [games, setGames] = React.useState(null)
   const [players, setPlayers] = React.useState(null)
+  const history = useHistory()
 
   React.useEffect(() => {
     const getData = async () => {
@@ -23,14 +25,18 @@ function Dashboard() {
     getData()
   }, [])
 
+  const handleClick = () => {
+    history.push('/addplayer')
+  }
+
   return (
     <div className="dash-wrap">
       <div className="dash-left">
         <section className="button-wrap">
-          <Button variant="dark" size="lg">
+          <Button className="button-height" variant="dark" size="lg" onClick={handleClick}>
             Add Player
           </Button>
-          <Button variant="dark" size="lg">
+          <Button className="button-height" variant="dark" size="lg">
             Add Game
           </Button>
         </section>

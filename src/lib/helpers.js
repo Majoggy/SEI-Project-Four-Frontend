@@ -122,7 +122,11 @@ export function statify(games, players) {
     playerObj = { ...playerObj, 'total': minusFormatting(total), gamesPlayed: gameCount, 
       topTwoPercentage: percentage(playerObj.first + playerObj.second, gameCount),
       average: minusFormatting(average) }
-    
+
+    if (playerObj.gamesPlayed === 0) {
+      playerObj = { ...playerObj, average: 'n/a', topTwoPercentage: 'n/a', 'total': 'n/a' }
+    }
+  
     newData.push(playerObj)
   })
   return newData
