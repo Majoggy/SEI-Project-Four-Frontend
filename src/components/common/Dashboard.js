@@ -31,8 +31,8 @@ function Dashboard() {
   useLocation()
 
   return (
-    <div className="the-back">
-      <div className="dash-wrap">
+    <div className="the-back misc-grey">
+      <div className="dash-wrap misc-grey">
         <div className="container dash-left">
           <section className="container button-wrap">
             <Link to="/addplayer">
@@ -46,7 +46,7 @@ function Dashboard() {
               </Button>
             </Link>
           </section>
-          <section className={`${games < 1 ? 'no-game-flex container game-list-wrap' : 'container game-list-wrap'}`}>
+          <section className={`${games < 1 ? 'no-game-flex game-list-wrap light-grey' : 'game-list-wrap light-grey'}`}>
             {!games && <Loading />}
             {games && games < 1 && <NoGames />}
             <GameList games={games} refetchData={getData}/>
@@ -55,7 +55,11 @@ function Dashboard() {
         <div className="container dash-right">
           <section className="container spacing">
           </section>
-          <section className={`${games < 1 ? 'no-game-flex container leaderboard-wrap' : 'container leaderboard-wrap'}`}>
+          <section 
+            className=
+              {`${!games ? 'no-game-flex container leaderboard-wrap light-grey'
+                : 'container leaderboard-wrap light-grey'}`}
+            style={ games && games.length < 1 ? { height: 'auto' } : { }}>
             <Leaderboard games={games} players={players}/>
           </section>
         </div>

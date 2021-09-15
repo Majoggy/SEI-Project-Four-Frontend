@@ -40,7 +40,7 @@ function Login() {
           <Col className="outer-col"></Col>
           <Col xs={4} className="form-vertical-align">
             <Form onSubmit={handleSubmit}>
-              <h4>Login</h4>
+              <h2>Login</h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
                 <Form.Control

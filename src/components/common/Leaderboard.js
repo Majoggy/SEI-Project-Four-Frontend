@@ -25,7 +25,7 @@ function Leaderboard({ games, players }) {
         {!playerStats && <Loading />}
         {playerStats &&
         <>  
-          <Table striped bordered hover>
+          <Table className="table table-bordered" striped bordered hover>
             <thead>
               <tr >
                 <th style={{ height: '30px' }}>Name</th>
@@ -41,7 +41,7 @@ function Leaderboard({ games, players }) {
               
               {playerStats.map(player =>
                 <tr key={player.name}>
-                  <td>{player.name}</td>
+                  <td><strong>{player.name}</strong></td>
                   <td>{player.gamesPlayed === 0 ? '-' : player.gamesPlayed}</td>
                   <td>{player.topTwoPercentage}</td>
                   <td>{player.winnings ? `£${player.winnings}` : '-'}</td>

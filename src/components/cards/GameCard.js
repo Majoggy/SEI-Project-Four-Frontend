@@ -37,25 +37,6 @@ function GameCard({ game, refetchData }) {
           </div>
         </div>
       </div>
-      {/* <div className="game-box" key={game.id}>
-        <div className="text-wrap">
-          <div className="centered">
-            <h5>{game.date}</h5>
-          </div>
-          <div className="centered">
-            <h6>£{game.numberOfPlayers * game.buyIn}</h6>
-          </div>
-          <div>
-            <h6>First Place: {game.firstPlace.name}</h6>
-            <h6>Runner Up: {game.secondPlace.name}</h6>
-          </div>
-        </div>
-        <Button variant="secondary" onClick={handleShow} className="btn-sm">View Game</Button>
-        <Link to={{ pathname: '/editgame', state: { game: game.id } }}>
-          <Button variant="warning" className="btn-sm edit-button">Edit Game</Button>
-        </Link>
-        <Button variant="danger" className="btn-sm" onClick={handleDelete}>Delete Game</Button>
-      </div> */}
       
       <Modal show={show} size="lg"
         key={game.name} centered>
@@ -86,7 +67,6 @@ function GameCard({ game, refetchData }) {
             <p>Buy In: £{game.buyIn}</p>
             <p>Prize Pool: £{game.prizeForFirst + game.prizeForSecond + game.prizeForThird}</p>
           </Col>
-
           <Button variant="dark" onClick={handleClose}>
           Close
           </Button>

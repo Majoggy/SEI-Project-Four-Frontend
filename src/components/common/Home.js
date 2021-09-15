@@ -5,14 +5,14 @@ function Home() {
   
   return (
     <Container fluid className="no-pad">
-      <div className="home-wrap">
+      <div className="home-wrap misc-grey">
         <div className="title-wrap">
-          <h1>my home game tracker</h1>
-          <h3>poker statistics at the click of a button</h3>
+          <p style={{ fontSize: '50px' }}><strong>my home game tracker</strong></p>
+          <p style={{ fontSize: '40px' }}>poker statistics at the click of a button</p>
         </div>
         <div className="info-wrap">
-          <div className="promo-text-box"></div>
-          <div className="promo-text-box"></div>
+          <div className="promo-text-box light-grey"></div>
+          <div className="promo-text-box light-grey"></div>
         </div>
       </div>
     </Container>

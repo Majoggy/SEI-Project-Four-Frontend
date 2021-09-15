@@ -49,8 +49,6 @@ function GameEdit() {
         setPlayerList(playerData.data)
       } catch (err) {
         console.log('errorsss oh noo')
-        // setIsError(true)
-        // setFormErrors(err.response.data.errors)
       }
     }
     getData()
@@ -63,7 +61,7 @@ function GameEdit() {
           <Row>
             <Col className="outer-col"></Col>
             <Col xs={4} className="form-vertical-align">
-              <h4>Edit Game</h4>
+              <h2>Edit Game</h2>
               <Form name="editForm" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
                   <Form.Label>Buy In</Form.Label>
@@ -131,7 +129,7 @@ function GameEdit() {
                     {...register('firstPlace', { required: true })}
                     name="firstPlace">
                     <option value={formData.firstPlace.id}>{formData.firstPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.firstPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -145,7 +143,7 @@ function GameEdit() {
                     {...register('secondPlace', { required: true })}
                     name="secondPlace">
                     <option value={formData.secondPlace.id}>{formData.secondPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.secondPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -159,7 +157,7 @@ function GameEdit() {
                     {...register('thirdPlace', { required: true })}
                     name="thirdPlace">
                     <option value={formData.thirdPlace.id}>{formData.thirdPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.thirdPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -173,7 +171,7 @@ function GameEdit() {
                     {...register('fourthPlace', { required: true })}
                     name="fourthPlace">
                     <option value={formData.fourthPlace.id}>{formData.fourthPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.fourthPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -187,7 +185,7 @@ function GameEdit() {
                     {...register('fifthPlace', { required: true })}
                     name="fifthPlace">
                     <option value={formData.fifthPlace.id}>{formData.fifthPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.fifthPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -201,7 +199,7 @@ function GameEdit() {
                     {...register('sixthPlace', { required: true })}
                     name="sixthPlace">
                     <option value={formData.sixthPlace.id}>{formData.sixthPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.sixthPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -215,7 +213,7 @@ function GameEdit() {
                     {...register('seventhPlace', { required: true })}
                     name="seventhPlace">
                     <option value={formData.seventhPlace.id}>{formData.seventhPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.seventhPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -229,7 +227,7 @@ function GameEdit() {
                     {...register('eighthPlace', { required: true })}
                     name="eighthPlace">
                     <option value={formData.eighthPlace.id}>{formData.eighthPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.eighthPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>
@@ -243,7 +241,7 @@ function GameEdit() {
                     {...register('ninthPlace', { required: true })}
                     name="ninthPlace">
                     <option value={formData.ninthPlace.id}>{formData.ninthPlace.name}</option>
-                    {playerList.map(player => (
+                    {playerList.filter(player => player.id !== formData.ninthPlace.id).map(player => (
                       <option key={player.id} value={player.id}>{player.name}</option>
                     ))}
                   </Form.Control>

@@ -38,7 +38,7 @@ function PlayerAdd() {
           <Col className="outer-col"></Col>
           <Col xs={4} className="form-vertical-align">
             <Form onSubmit={handleSubmit}>
-              <h4>Add Player</h4>
+              <h2>Add Player</h2>
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
                 <Form.Control

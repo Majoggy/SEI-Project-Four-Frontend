@@ -2,15 +2,15 @@
 
 // * Nav Bar
 
-.nav-bar-border {
-  border-bottom: black 1px solid;
-}
+// .nav-bar-border {
+//   border-bottom: black 1px solid;
+// }
 
 // * Footer
 
-.footer-border {
-  border-top: black 1px solid;
-}
+// .footer-border {
+//   border-top: black 1px solid;
+// }
 
 .bold {
   font-weight: bold;
@@ -40,8 +40,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 85vh;
-  background-color: grey;
+  height: 92vh;
   width: 100%;
 }
 
@@ -56,11 +55,10 @@ align-items: center;
 }
 
 .promo-text-box {
-  border: black 1px solid;
+  // border: black 1px solid;
   height: 300px;
   width: 500px;
   margin: 20px;
-  background-color: lightgray;
 }
 
 // * Register
@@ -81,6 +79,9 @@ align-items: center;
   border: 1px black solid;
   padding: 5px;
   margin: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 75px;
   background-color: whitesmoke;
   border-radius: 0.5ch;
 }
@@ -108,6 +109,7 @@ align-items: center;
     .button-wrap {
       width: 75%;
       height: 100px;
+
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -115,11 +117,12 @@ align-items: center;
 
     .game-list-wrap {
       border: black 1px solid;
-      padding: 5px;
-      max-height: 80%;
+      width: 714px;
+      padding-left: 5px;
+      padding-right: 5px;
+      max-height: 692px;
       min-height: 200px;
       border-radius: 0.5ch;
-      background-color: lightgray;
     }
   }
 
@@ -142,15 +145,12 @@ align-items: center;
     width: 50%;
 
     .leaderboard-wrap {
-      max-height: 90%;
-      min-height: 300px;
       padding: 10px;
-      
+      height: 692px;
       border-radius: 0.5ch;
-      background-color: lightgray;
       border: 1px black solid;
       display: flex;
-      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
@@ -184,4 +184,43 @@ align-items: center;
 
 .button-border {
   border: black 1px solid;
+}
+
+.red {
+  background-color: #e84444;
+}
+
+.light-red {
+  background-color: #dd746c;
+}
+
+.salmon {
+  background-color: #ec8d8d;
+}
+
+.light-grey {
+  background-color: #e4e3e3;
+}
+
+.dark-grey {
+  background-color: #8c8c8c;
+}
+
+.shadow-grey {
+  background-color: #6c6c6c;
+}
+
+.misc-grey {
+  background-color: #b3b3b3;
+}
+
+table.table-bordered{
+  border:1px #6c6c6c;
+  margin-top:20px;
+}
+table.table-bordered > thead > tr > th{
+  border:1px solid #6c6c6c;
+}
+table.table-bordered > tbody > tr > td{
+  border:1px solid #6c6c6c;
 }

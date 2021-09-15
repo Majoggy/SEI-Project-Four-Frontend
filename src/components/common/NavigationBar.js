@@ -16,8 +16,8 @@ function NavigationBar() {
   useLocation()
 
   return (
-    <Navbar className="py-6 nav-bar-border" bg="light" expand="lg">
-      <Container>
+    <Navbar className="py-6 nav-bar-border light-red" expand="lg">
+      <Container className="light-red">
         {!isAuth &&
         <>
           <Navbar.Brand className="bold" href="/">My Home Game Tracker</Navbar.Brand>

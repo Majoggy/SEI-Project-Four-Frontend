@@ -95,7 +95,7 @@ function GameAdd() {
         <Col className="outer-col"></Col>
         <Col xs={4} className="form-vertical-align">
           <div className='log-game-form-wrap'>
-            <h4>Add New Game</h4>
+            <h2>Add New Game</h2>
             {!playerNumKnown && 
         <Form name="numberOfPlayers" onSubmit={handleSub}>
           <Form.Group className="mb-3">
