@@ -16,7 +16,7 @@ function NavigationBar() {
   useLocation()
 
   return (
-    <Navbar className="py-5 nav-bar-border" bg="light" expand="lg">
+    <Navbar className="py-6 nav-bar-border" bg="light" expand="lg">
       <Container>
         {!isAuth &&
         <>

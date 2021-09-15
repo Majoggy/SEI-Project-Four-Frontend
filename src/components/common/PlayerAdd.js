@@ -36,9 +36,9 @@ function PlayerAdd() {
       <Container className="login" fluid>
         <Row>
           <Col className="outer-col"></Col>
-          <Col xs={6} className="form-vertical-align">
+          <Col xs={4} className="form-vertical-align">
             <Form onSubmit={handleSubmit}>
-              <h4>Player Add</h4>
+              <h4>Add Player</h4>
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
                 <Form.Control

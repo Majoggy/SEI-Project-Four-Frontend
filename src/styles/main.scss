@@ -3,13 +3,13 @@
 // * Nav Bar
 
 .nav-bar-border {
-  border-bottom: black 2px solid;
+  border-bottom: black 1px solid;
 }
 
 // * Footer
 
 .footer-border {
-  border-top: black 2px solid;
+  border-top: black 1px solid;
 }
 
 .bold {
@@ -56,7 +56,7 @@ align-items: center;
 }
 
 .promo-text-box {
-  border: black 2px solid;
+  border: black 1px solid;
   height: 300px;
   width: 500px;
   margin: 20px;
@@ -78,15 +78,23 @@ align-items: center;
 // * Dashboard
 
 .game-box {
-  border: 2px black solid;
-  padding: 10px;
-  margin: 10px;
+  border: 1px black solid;
+  padding: 5px;
+  margin: 5px;
+  background-color: whitesmoke;
   border-radius: 0.5ch;
+}
+
+.the-back {
+  display: flex;
+  justify-content: center;
+  background-color:black;
 }
 
 .dash-wrap {
   display: flex;
-  height: 85vh;
+  width: 1500px;
+  height: 95vh;
   background-color: grey;
 
   .dash-left {
@@ -95,42 +103,52 @@ align-items: center;
     flex-direction: column;
     height: 100%;
     width: 50%;
+    margin-left: 12px;
 
     .button-wrap {
-      padding: 20px;
-      margin: 20px;
       width: 75%;
-      height:10%;
+      height: 100px;
       display: flex;
+      align-items: center;
       justify-content: space-evenly;
     }
 
     .game-list-wrap {
-      border: black 2px solid;
-      padding: 10px;
-      margin: 10px;
-      width: 90%;
-      height: 80%;
+      border: black 1px solid;
+      padding: 5px;
+      max-height: 80%;
+      min-height: 200px;
       border-radius: 0.5ch;
       background-color: lightgray;
     }
   }
 
-  .dash-right {
+  .no-game-flex {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .spacing {
+    height: 100px;
+  }
+
+  .dash-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
+    margin-right: 12px;
     width: 50%;
 
     .leaderboard-wrap {
-      height: 90%;
+      max-height: 90%;
+      min-height: 300px;
       padding: 10px;
-      margin: 10px;
-      width: 90%;
-      border-radius: 0.5;
+      
+      border-radius: 0.5ch;
       background-color: lightgray;
-      border: 2px black solid;
+      border: 1px black solid;
       display: flex;
       flex-wrap: wrap;
     }
@@ -140,4 +158,30 @@ align-items: center;
     height: 50px;
   }
 
+  .player-card {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 0.5ch;
+    background-color: whitesmoke;
+    border: black 1px solid;
+  }
+
+  .edit-button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.center-flex {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-border {
+  border: black 1px solid;
 }

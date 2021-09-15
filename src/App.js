@@ -11,6 +11,7 @@ import Login from './components/auth/Login'
 import Dashboard from './components/common/Dashboard'
 import PlayerAdd from './components/common/PlayerAdd'
 import GameAdd from './components/common/GameAdd'
+import GameEdit from './components/common/GameEdit'
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </SecureRoute>
         <SecureRoute path="/addgame">
           <GameAdd />
+        </SecureRoute>
+        <SecureRoute path="/editgame">
+          <GameEdit/>
         </SecureRoute>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

@@ -124,7 +124,7 @@ export function statify(games, players) {
       average: minusFormatting(average) }
 
     if (playerObj.gamesPlayed === 0) {
-      playerObj = { ...playerObj, average: 'n/a', topTwoPercentage: 'n/a', 'total': 'n/a' }
+      playerObj = { ...playerObj, average: '-', topTwoPercentage: '-', 'total': '-' }
     }
   
     newData.push(playerObj)

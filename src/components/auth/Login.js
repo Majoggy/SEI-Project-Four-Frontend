@@ -38,7 +38,7 @@ function Login() {
       <Container className="login" fluid>
         <Row>
           <Col className="outer-col"></Col>
-          <Col xs={6} className="form-vertical-align">
+          <Col xs={4} className="form-vertical-align">
             <Form onSubmit={handleSubmit}>
               <h4>Login</h4>
               <Form.Group className="mb-3" controlId="formBasicEmail">

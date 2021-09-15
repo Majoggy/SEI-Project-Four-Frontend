@@ -1,5 +1,7 @@
 import React from 'react'
 import { statify } from '../../lib/helpers'
+import { Table } from 'react-bootstrap'
+import Loading from './Loading'
 
 function Leaderboard({ games, players }) {
   const [playerStats, setPlayerStats] = React.useState(null)
@@ -15,19 +17,60 @@ function Leaderboard({ games, players }) {
     getData()
   }, [games, players])
 
+  console.log(playerStats)
+
   return (
     <>
-      {playerStats && playerStats.map(player => 
-        <div key={player.name} className="">
-          <h5 >{player.name}</h5>
-          <h6>Games played: {player.gamesPlayed}</h6>
-          <h6>Top two percentage: {player.topTwoPercentage}</h6>
-          <h6>Profit/loss: {player.total}</h6>
-          <h6>Profit per game: {player.average}</h6>
-        </div>
-      )}
+      <div>
+        {!playerStats && <Loading />}
+        {playerStats &&
+        <>  
+          <Table striped bordered hover>
+            <thead>
+              <tr >
+                <th style={{ height: '30px' }}>Name</th>
+                <th>Games Played</th>
+                <th>Top Two Percentage</th>
+                <th>Total Won</th>
+                <th>Total Spent</th>
+                <th>Profit/loss</th>
+                <th>Per game</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              {playerStats.map(player =>
+                <tr key={player.name}>
+                  <td>{player.name}</td>
+                  <td>{player.gamesPlayed === 0 ? '-' : player.gamesPlayed}</td>
+                  <td>{player.topTwoPercentage}</td>
+                  <td>{player.winnings ? `£${player.winnings}` : '-'}</td>
+                  <td>{player.losses ? `£${player.losses}` : '-'}</td>
+                  <td>{player.total}</td>
+                  <td>{player.average}</td>
+                </tr>
+              )}
+              
+            </tbody>
+            
+          </Table>
+        </>
+        }
+      </div>
     </>
   )
 }
 
 export default Leaderboard
+
+
+
+{/* {playerStats && playerStats.map(player => 
+  <div className="player-card" key={player.name}>
+    <h6>{player.name}</h6>
+    <a>Games played: {player.gamesPlayed}</a>
+    <a>Top two: {player.topTwoPercentage}</a>
+    <a>Profit/loss: {player.total}</a>
+    <a>Profit per game: {player.average}</a>
+  </div>
+)} */}
