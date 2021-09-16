@@ -275,7 +275,7 @@ function GameEdit() {
                     <Form.Text className="text-muted">A date is required</Form.Text>
                   )}
                 </Form.Group>
-                <Button variant="secondary" type="submit">
+                <Button variant="none" className="btn-default" type="submit">
                 Submit Changes
                 </Button>
               </Form>

@@ -11,8 +11,9 @@ function Home() {
           <p style={{ fontSize: '40px' }}>poker statistics at the click of a button</p>
         </div>
         <div className="info-wrap">
-          <div className="promo-text-box light-grey"></div>
-          <div className="promo-text-box light-grey"></div>
+          <div className="promo-text-box box1"></div>
+          <div className="promo-text-box box2"></div>
+          
         </div>
       </div>
     </Container>

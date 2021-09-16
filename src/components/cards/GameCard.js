@@ -26,14 +26,14 @@ function GameCard({ game, refetchData }) {
       <div className="game-box" key={game.id}>
         <div className="row">
           <div className="col-sm-4 center-flex"><h5>{game.date}</h5></div>
-          <div className="col-sm-4 center-flex"><h6>£{game.numberOfPlayers * game.buyIn}</h6></div>
-          <div className="col-sm-4 center-flex"><h6>{game.firstPlace.name}</h6></div>
+          <div className="col-sm-4 center-flex"><h5>£{game.numberOfPlayers * game.buyIn}</h5></div>
+          <div className="col-sm-4 center-flex"><h5>{game.firstPlace.name}</h5></div>
           <div className="col-sm-12 center-flex">
-            <Button variant="secondary" onClick={handleShow} className="btn-sm button-border">View Game</Button>
+            <Button variant="none" className="btn-default btn-sm" onClick={handleShow}>View Game</Button>
             <Link to={{ pathname: '/editgame', state: { game: game.id } }}>
-              <Button variant="warning" className="btn-sm edit-button button-border">Edit Game</Button>
+              <Button variant="none" className="btn-default btn-sm edit-button">Edit Game</Button>
             </Link>
-            <Button variant="danger" className="btn-sm button-border" onClick={handleDelete}>Delete Game</Button>
+            <Button variant="none" className="btn-default btn-sm" onClick={handleDelete}>Delete Game</Button>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ function GameCard({ game, refetchData }) {
             <p>Buy In: £{game.buyIn}</p>
             <p>Prize Pool: £{game.prizeForFirst + game.prizeForSecond + game.prizeForThird}</p>
           </Col>
-          <Button variant="dark" onClick={handleClose}>
+          <Button variant="none" className="btn-default" onClick={handleClose}>
           Close
           </Button>
         </Modal.Footer>

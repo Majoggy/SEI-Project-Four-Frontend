@@ -16,17 +16,17 @@ function NavigationBar() {
   useLocation()
 
   return (
-    <Navbar className="py-6 nav-bar-border light-red" expand="lg">
+    <Navbar className="nav-bar-border light-red" expand="lg">
       <Container className="light-red">
         {!isAuth &&
         <>
-          <Navbar.Brand className="bold" href="/">My Home Game Tracker</Navbar.Brand>
+          <Navbar.Brand className="bold" href="/"><img src="https://i.ibb.co/CnfjVTj/aces-icon.png" className="aces-icon"alt="aces-icon"/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </>
         }
         {isAuth &&
         <>
-          <Navbar.Brand className="bold" href="/dashboard">My Home Game Tracker</Navbar.Brand>
+          <Navbar.Brand className="bold" href="/dashboard"><img src="https://i.ibb.co/CnfjVTj/aces-icon.png" className="aces-icon"alt="aces-icon"/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </>
         }

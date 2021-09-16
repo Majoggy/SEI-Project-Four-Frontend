@@ -64,7 +64,7 @@ function PlayerAdd() {
                   </Form.Text>
                 )}
               </Form.Group>
-              <Button variant="secondary" type="submit">
+              <Button variant="none" className="btn-default" type="submit">
                 Create Player
               </Button>
             </Form>

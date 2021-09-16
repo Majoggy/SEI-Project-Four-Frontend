@@ -1,12 +1,27 @@
 @import "~bootstrap/scss/bootstrap";
 
+
+
+	
+.btn-default {
+background-color: #dd746c;
+color:#FFF;
+outline: none!important;
+} 
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+  background-color: #ec8d8d;
+  color:#FFF;
+  outline: none!important;
+  }
+
 // * Nav Bar
 
 // .nav-bar-border {
 //   border-bottom: black 1px solid;
 // }
 
-// * Footer
+// * Foote
 
 // .footer-border {
 //   border-top: black 1px solid;
@@ -15,6 +30,7 @@
 .bold {
   font-weight: bold;
   font-size: large;
+  color: black!important;
 }
 
 .footer {
@@ -45,6 +61,7 @@
 }
 
 .title-wrap {
+margin-top: -50px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -52,12 +69,13 @@ align-items: center;
 
 .info-wrap {
   display: flex;
+  margin-top: -80px;
 }
 
 .promo-text-box {
   // border: black 1px solid;
-  height: 300px;
-  width: 500px;
+  height: 450px;
+  width: 650px;
   margin: 20px;
 }
 
@@ -76,20 +94,22 @@ align-items: center;
 // * Dashboard
 
 .game-box {
-  border: 1px black solid;
+  border: 1px #8c8c8c solid;
+  background-color: whitesmoke;
   padding: 5px;
   margin: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
   height: 75px;
-  background-color: whitesmoke;
-  border-radius: 0.5ch;
+  // border-radius: 0.5ch;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  // box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .the-back {
   display: flex;
   justify-content: center;
-  background-color:black;
 }
 
 .dash-wrap {
@@ -109,20 +129,22 @@ align-items: center;
     .button-wrap {
       width: 75%;
       height: 100px;
-
       display: flex;
       align-items: center;
       justify-content: space-evenly;
     }
 
     .game-list-wrap {
-      border: black 1px solid;
+      // border-radius: 0.5ch;
+      // border: #8c8c8c 1px solid;
       width: 714px;
       padding-left: 5px;
       padding-right: 5px;
       max-height: 692px;
       min-height: 200px;
-      border-radius: 0.5ch;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+      // box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
   }
 
@@ -147,27 +169,18 @@ align-items: center;
     .leaderboard-wrap {
       padding: 10px;
       height: 692px;
-      border-radius: 0.5ch;
-      border: 1px black solid;
+      // border-radius: 0.5ch;
+      // border: 1px #8c8c8c solid;
       display: flex;
       justify-content: center;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+      // box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
   }
 
   .button-height {
     height: 50px;
-  }
-
-  .player-card {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 0.5ch;
-    background-color: whitesmoke;
-    border: black 1px solid;
   }
 
   .edit-button {
@@ -214,13 +227,49 @@ align-items: center;
   background-color: #b3b3b3;
 }
 
+.off-white {
+  background-color: rgb(228, 228, 228);
+}
+
+.white {
+  background-color: white;
+}
+
 table.table-bordered{
-  border:1px #6c6c6c;
+  border:1px #8c8c8c;
   margin-top:20px;
+  margin-top: 0px;
 }
 table.table-bordered > thead > tr > th{
-  border:1px solid #6c6c6c;
+  border:1px solid #8c8c8c;
 }
 table.table-bordered > tbody > tr > td{
-  border:1px solid #6c6c6c;
+  border:1px solid #8c8c8c;
+}
+
+.card-wrap {
+  max-width: 714px;
+  padding: 40px;
+}
+
+.aces-icon {
+  height: 45px;
+  width: auto;
+  margin: 10px;
+}
+
+.card-img {
+  opacity: 0.65;
+}
+
+.box1 {
+background-image: url("https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F46BODWQ2FfaarWt8R6bwSA%252FCassius_Marcellus_Coolidge_-_Poker_Game_%25281894%2529.png&width=1200&quality=80");
+background-size: 100% 100%;
+opacity: 0.85;
+}
+
+.box2 {
+  background-image: url("https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F-EKPTcrTup6_KShRV4SQZg%252Fa_bold_bluff.jpg&width=1200&quality=80");
+  background-size: 100% 100%;
+  opacity: 0.85;
 }

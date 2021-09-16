@@ -18,9 +18,7 @@ function App() {
     <BrowserRouter>
       <NavigationBar/>
       <Switch>
-        <Route exact path="/">
-          <Home /> 
-        </Route>
+        <Route exact path="/" component={Home} />
         <SecureRoute path="/addplayer">
           <PlayerAdd />
         </SecureRoute>

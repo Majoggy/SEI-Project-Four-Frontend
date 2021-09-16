@@ -113,7 +113,7 @@ function GameAdd() {
               <option value="9">9</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="dark" type="submit">
+          <Button variant="none" className="btn-default" type="submit">
             Next
           </Button>
         </Form>
@@ -136,7 +136,7 @@ function GameAdd() {
               )}  
             </Form.Group>
 
-            <Button variant="dark" type="submit">
+            <Button variant="none" className="btn-default" type="submit">
               Next
             </Button>
           </Form>
@@ -179,7 +179,7 @@ function GameAdd() {
               )}  
             </Form.Group>
 
-            <Button variant="dark" type="submit">
+            <Button variant="none" className="btn-default" type="submit">
               Next
             </Button>
           </Form>
@@ -390,7 +390,7 @@ function GameAdd() {
                 <Form.Text className="text-muted">A name is required for the game</Form.Text>
               )}
             </Form.Group>
-            <Button variant="dark" type="submit">
+            <Button variant="none" className="btn-default" type="submit">
             Add Game
             </Button>
           </Form>

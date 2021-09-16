@@ -41,7 +41,7 @@ function Leaderboard({ games, players }) {
               
               {playerStats.map(player =>
                 <tr key={player.name}>
-                  <td><strong>{player.name}</strong></td>
+                  <td>{player.name}</td>
                   <td>{player.gamesPlayed === 0 ? '-' : player.gamesPlayed}</td>
                   <td>{player.topTwoPercentage}</td>
                   <td>{player.winnings ? `£${player.winnings}` : '-'}</td>
@@ -62,15 +62,3 @@ function Leaderboard({ games, players }) {
 }
 
 export default Leaderboard
-
-
-
-{/* {playerStats && playerStats.map(player => 
-  <div className="player-card" key={player.name}>
-    <h6>{player.name}</h6>
-    <a>Games played: {player.gamesPlayed}</a>
-    <a>Top two: {player.topTwoPercentage}</a>
-    <a>Profit/loss: {player.total}</a>
-    <a>Profit per game: {player.average}</a>
-  </div>
-)} */}

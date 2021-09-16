@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Image } from 'react-bootstrap'
 import { getAllGames, getAllPlayers } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router'
@@ -36,12 +36,12 @@ function Dashboard() {
         <div className="container dash-left">
           <section className="container button-wrap">
             <Link to="/addplayer">
-              <Button className="button-height button-border" variant="dark" size="lg" name="">
+              <Button variant="none" className="button-height btn-default">
               Add Player
               </Button>
             </Link>
             <Link to="/addgame" players={players}>
-              <Button className="button-height button-border" variant="dark" size="lg">
+              <Button variant="none" className="button-height btn-default">
                 Add Game
               </Button>
             </Link>
@@ -51,6 +51,10 @@ function Dashboard() {
             {games && games < 1 && <NoGames />}
             <GameList games={games} refetchData={getData}/>
           </section>
+          {games && games < 1 && (
+            <div className="card-wrap">
+              <Image height="400px" opacity="0.5" src="https://i.ibb.co/p4qvTsh/cards.png" className="card-img" alt="cards" border="0"/>
+            </div>)}
         </div>
         <div className="container dash-right">
           <section className="container spacing">

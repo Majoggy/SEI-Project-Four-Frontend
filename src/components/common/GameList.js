@@ -8,7 +8,7 @@ function GameList({ games, refetchData }) {
 
       {games && games.map(game => <GameCard key={game.id} game={game} refetchData={refetchData}/>
       )}
-      {games && games.length > 0 &&
+      {games && games.length === 1 &&
       <>
         <EmptyGameCard />
         <EmptyGameCard />

@@ -98,7 +98,7 @@ function Register() {
                 )}
               </Form.Group>
 
-              <Button variant="secondary" type="submit">
+              <Button variant="none" className="btn-default" type="submit">
                 Register
               </Button>
             </Form>
