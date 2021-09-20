@@ -156,6 +156,9 @@ align-items: center;
 
   .spacing {
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .dash-right {

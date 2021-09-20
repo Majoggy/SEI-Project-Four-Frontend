@@ -1,29 +1,14 @@
 import React from 'react'
-import { statify } from '../../lib/helpers'
+
 import { Table } from 'react-bootstrap'
 import Loading from './Loading'
 
-function Leaderboard({ games, players }) {
-  const [playerStats, setPlayerStats] = React.useState(null)
-
-  React.useEffect(() => {
-    const getData = async () => {
-      try {
-        setPlayerStats(statify(games, players))
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getData()
-  }, [games, players])
-
-  console.log(playerStats)
-
+function Leaderboard({ filteredStats, playerStats }) {
   return (
     <>
       <div>
         {!playerStats && <Loading />}
-        {playerStats &&
+        {playerStats && 
         <>  
           <Table className="table table-bordered" striped bordered hover>
             <thead>
@@ -38,8 +23,7 @@ function Leaderboard({ games, players }) {
               </tr>
             </thead>
             <tbody>
-              
-              {playerStats.map(player =>
+              {!filteredStats && playerStats.map(player =>
                 <tr key={player.name}>
                   <td>{player.name}</td>
                   <td>{player.gamesPlayed === 0 ? '-' : player.gamesPlayed}</td>
@@ -50,9 +34,18 @@ function Leaderboard({ games, players }) {
                   <td>{player.average}</td>
                 </tr>
               )}
-              
+              {filteredStats && filteredStats.map(player =>
+                <tr key={player.name}>
+                  <td>{player.name}</td>
+                  <td>{player.gamesPlayed === 0 ? '-' : player.gamesPlayed}</td>
+                  <td>{player.topTwoPercentage}</td>
+                  <td>{player.winnings ? `£${player.winnings}` : '-'}</td>
+                  <td>{player.losses ? `£${player.losses}` : '-'}</td>
+                  <td>{player.total}</td>
+                  <td>{player.average}</td>
+                </tr>
+              )}
             </tbody>
-            
           </Table>
         </>
         }
