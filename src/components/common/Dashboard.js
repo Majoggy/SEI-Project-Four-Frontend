@@ -2,10 +2,10 @@ import React, { useCallback } from 'react'
 import { Button, Dropdown, Image } from 'react-bootstrap'
 import { getAllGames, getAllPlayers } from '../../lib/api'
 import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router'
 import NoGames from './NoGames'
 import { statify } from '../../lib/helpers'
 import { alphaSort, gamesPlayedSort, totalSort, topTwoSort } from '../../lib/filterFunctions'
+import { getPayLoad } from '../../lib/auth'
 
 import GameList from './GameList'
 import Leaderboard from './Leaderboard'
@@ -16,6 +16,8 @@ function Dashboard() {
   const [players, setPlayers] = React.useState(null)
   const [playerStats, setPlayerStats] = React.useState(null)
   const [filteredStats, setFilteredStats] = React.useState(null)
+  const [gameHistory, setGameHistory] = React.useState(0)
+  const [userId, setUserId] = React.useState(null)
 
   const getData = async () => {
     try {
@@ -24,6 +26,9 @@ function Dashboard() {
       setGames(gameRes.data)
       setPlayers(playerRes.data)
       setPlayerStats(alphaSort(statify(gameRes.data, playerRes.data)))
+      const payLoad = getPayLoad()
+      const user = payLoad.sub
+      setUserId(user)
     } catch (err) {
       console.log(err)
     }
@@ -33,27 +38,37 @@ function Dashboard() {
     getData()
   }, [])
 
-  useLocation()
-
   const toggleFilter = useCallback(event => {
     const value = event.target.target
-    if (value === 'alpha') {
-      setFilteredStats(alphaSort(playerStats))
-    }
-    if (value === 'gamesPlayed') { 
-      setFilteredStats(gamesPlayedSort(playerStats))
-    }    if (value === 'total') {
-      setFilteredStats(totalSort(playerStats))
-    }    if (value === 'topTwoPercentage') {
-      setFilteredStats(topTwoSort(playerStats))
-    }
+    if (value === 'alpha') setFilteredStats(alphaSort(playerStats))
+    if (value === 'gamesPlayed') setFilteredStats(gamesPlayedSort(playerStats))
+    if (value === 'total') setFilteredStats(totalSort(playerStats))
+    if (value === 'topTwoPercentage') setFilteredStats(topTwoSort(playerStats))
   })
 
   React.useEffect(() => {
     setFilteredStats()
   }, [toggleFilter])
   
-  
+  const handleBackward = () => {
+    if (gameHistory === 3) setGameHistory(2)
+    if (gameHistory === 2) setGameHistory(1)
+    if (gameHistory === 1) setGameHistory(0)
+    
+  }
+
+  const handleForward = () => {
+    if (gameHistory === 0 && games.length > 8 ) {
+      setGameHistory(1)
+    }
+    if (gameHistory === 1 && games.length > 16 ) {
+      setGameHistory(2)
+    }
+    if (gameHistory === 2 && games.length > 24 ) {
+      setGameHistory(3)
+    }
+
+  }
 
   return (
     <div className="the-back misc-grey">
@@ -74,12 +89,24 @@ function Dashboard() {
           <section className={`${games < 1 ? 'no-game-flex game-list-wrap light-grey' : 'game-list-wrap light-grey'}`}>
             {!games && <Loading />}
             {games && games < 1 && <NoGames />}
-            <GameList games={games} refetchData={getData}/>
+            <GameList games={games} gameHistory={gameHistory} refetchData={getData} userId={userId}/>
           </section>
           {games && games < 1 && (
             <div className="card-wrap">
               <Image height="400px" src="https://i.ibb.co/p4qvTsh/cards.png" className="card-img" alt="cards" border="0"/>
             </div>)}
+          <div className='game-browse-buttons'>
+            {gameHistory > 0 ? <Button variant="none" onClick={handleBackward} className="button-height btn-default">
+                Back
+            </Button> : <Button variant="dark" className="button-height">
+                Back
+            </Button>}
+            {gameHistory < 2 ? <Button variant="none" onClick={handleForward} className="button-height btn-default forward-button">
+                Forward
+            </Button> : <Button variant="dark" className="button-height forward-button">
+                Forward
+            </Button>}
+          </div>
         </div>
         <div className="container dash-right">
           <section className="container spacing">

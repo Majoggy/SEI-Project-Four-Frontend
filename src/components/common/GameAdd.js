@@ -4,6 +4,7 @@ import { Button, Container, Col, Row } from 'react-bootstrap'
 import { createGame, getAllPlayers } from '../../lib/api'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
+import { getPayLoad } from '../../lib/auth'
 
 function GameAdd() {
   const { register, handleSubmit } = useForm()
@@ -16,7 +17,7 @@ function GameAdd() {
     prizeForThird: 0,
     buyIn: '',
     numberOfPlayers: 3,
-    userId: '1',
+    userId: '',
     firstPlace: '',
     secondPlace: '',
     thirdPlace: '',
@@ -44,10 +45,14 @@ function GameAdd() {
   const [playerList, setPlayerList] = React.useState(null)
   const history = useHistory()
   const [totalPotDifference, setTotalPotDifference] = React.useState(null)
+  const [userId, setUserId] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
       const playerData = await getAllPlayers()
+      const payLoad = getPayLoad()
+      const user = payLoad.sub
+      setUserId(user)
       setPlayerList(playerData.data)
       console.log(playerData.data)
     }
@@ -87,7 +92,7 @@ function GameAdd() {
   }
 
   const mergeThenSend = async (rankingsData) => {
-    rankingsData = { ...rankingsData, ...formData }
+    rankingsData = { ...rankingsData, ...formData, userId: userId }
     console.log(rankingsData)
     try {
       await createGame(rankingsData)
