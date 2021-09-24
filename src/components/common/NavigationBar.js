@@ -20,18 +20,29 @@ function NavigationBar() {
       <Container className="light-red">
         {!isAuth &&
         <>
-          <Navbar.Brand className="bold" href="/"><img src="https://i.ibb.co/CnfjVTj/aces-icon.png" className="aces-icon"alt="aces-icon"/></Navbar.Brand>
+          <Navbar.Brand className="bold" href="/">
+            <img src="https://i.ibb.co/CnfjVTj/aces-icon.png" 
+              className="aces-icon" 
+              alt="aces-icon"/>
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </>
         }
         {isAuth &&
         <>
-          <Navbar.Brand className="bold" href="/dashboard"><img src="https://i.ibb.co/CnfjVTj/aces-icon.png" className="aces-icon"alt="aces-icon"/></Navbar.Brand>
+          <Navbar.Brand className="bold" href="/dashboard">
+            <img src="https://i.ibb.co/CnfjVTj/aces-icon.png" 
+              className="aces-icon" 
+              alt="aces-icon"/>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </>
         }
 
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse 
+          id="basic-navbar-nav" 
+          className="justify-content-end">
           {!isAuth &&
           <Nav>
             <Nav.Link className="bold" href="/login">Log In</Nav.Link>
@@ -40,7 +51,12 @@ function NavigationBar() {
           }
           {isAuth &&
             <Nav>
-              <Nav.Link className="bold" href="/" onClick={handleLogout}>Log Out</Nav.Link>
+              <Nav.Link 
+                className="bold" 
+                href="/" 
+                onClick={handleLogout}>
+                Log Out
+              </Nav.Link>
             </Nav>}
         </Navbar.Collapse>
       </Container>

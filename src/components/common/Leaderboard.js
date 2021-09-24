@@ -2,13 +2,15 @@ import React from 'react'
 
 import { Table } from 'react-bootstrap'
 import Loading from './Loading'
+import NoPlayers from './NoPlayers'
 
 function Leaderboard({ filteredStats, playerStats }) {
   return (
     <>
-      <div>
+      <div style={{ marginBottom: '-15px' }}>
         {!playerStats && <Loading />}
-        {playerStats && 
+        {playerStats && playerStats.length < 1 && <NoPlayers />}
+        {playerStats && playerStats.length > 0 &&
         <>  
           <Table className="table table-bordered" striped bordered hover>
             <thead>
@@ -33,7 +35,7 @@ function Leaderboard({ filteredStats, playerStats }) {
                   <td>{player.total}</td>
                   <td>{player.average}</td>
                 </tr>
-              )}
+              ).slice(0, 14)}
               {filteredStats && filteredStats.map(player =>
                 <tr key={player.name}>
                   <td>{player.name}</td>
@@ -44,7 +46,7 @@ function Leaderboard({ filteredStats, playerStats }) {
                   <td>{player.total}</td>
                   <td>{player.average}</td>
                 </tr>
-              )}
+              ).slice(0, 14)}
             </tbody>
           </Table>
         </>

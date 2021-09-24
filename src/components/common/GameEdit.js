@@ -48,7 +48,7 @@ function GameEdit() {
         setFormData(gameData.data)
         setPlayerList(playerData.data)
       } catch (err) {
-        console.log('errorsss oh noo')
+        console.log(err)
       }
     }
     getData()
@@ -74,7 +74,10 @@ function GameEdit() {
                     defaultValue={formData.buyIn}
                   />
                   {formErrors['buyIn'] && (
-                    <Form.Text className="text-muted">A Buy In is required</Form.Text>
+                    <Form.Text 
+                      className="text-muted">
+                        A Buy In is required
+                    </Form.Text>
                   )}
                 </Form.Group>
 
@@ -89,7 +92,10 @@ function GameEdit() {
                     {...register('prizeForFirst')}
                   />
                   {formErrors['prizeForFirst'] && (
-                    <Form.Text className="text-muted">A prize for first place is required</Form.Text>
+                    <Form.Text 
+                      className="text-muted">
+                      A prize for first place is required
+                    </Form.Text>
                   )}
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -258,7 +264,10 @@ function GameEdit() {
                     {...register('name')}
                   />
                   {formErrors['name'] && (
-                    <Form.Text className="text-muted">A name for the game is required</Form.Text>
+                    <Form.Text 
+                      className="text-muted">
+                      A name for the game is required
+                    </Form.Text>
                   )}
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -275,7 +284,10 @@ function GameEdit() {
                     <Form.Text className="text-muted">A date is required</Form.Text>
                   )}
                 </Form.Group>
-                <Button variant="none" className="btn-default" type="submit">
+                <Button 
+                  variant="none" 
+                  className="btn-default" 
+                  type="submit">
                 Submit Changes
                 </Button>
               </Form>

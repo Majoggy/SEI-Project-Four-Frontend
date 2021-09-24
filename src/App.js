@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import SecureRoute from './components/common/SecureRoute'
 
 import NavigationBar from './components/common/NavigationBar'
-import Footer from './components/common/Footer'
 import Home from './components/common/Home'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
@@ -34,7 +33,6 @@ function App() {
           <Dashboard/>
         </SecureRoute>
       </Switch>
-      <Footer />
     </BrowserRouter>
   )
 }

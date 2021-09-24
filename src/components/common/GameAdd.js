@@ -75,11 +75,12 @@ function GameAdd() {
     }
 
     if (name === 'winnings') {
-      if (parseInt(formData['prizeForFirst']) + parseInt(formData['prizeForSecond']) + parseInt(formData['prizeForThird']) === (parseInt(formData['buyIn']) * parseInt(formData['numberOfPlayers']))) {
+      if (parseInt(formData['prizeForFirst']) + parseInt(formData['prizeForSecond']) + parseInt(formData['prizeForThird']) 
+      === (parseInt(formData['buyIn']) * parseInt(formData['numberOfPlayers']))) {
         setPayoutsKnown(true)
       } else {
-
-        setTotalPotDifference((parseInt(formData['prizeForFirst']) + parseInt(formData['prizeForSecond']) + parseInt(formData['prizeForThird'])) - ((parseInt(formData['buyIn']) * parseInt(formData['numberOfPlayers']))))
+        setTotalPotDifference((parseInt(formData['prizeForFirst']) + parseInt(formData['prizeForSecond']) + parseInt(formData['prizeForThird'])) 
+        - ((parseInt(formData['buyIn']) * parseInt(formData['numberOfPlayers']))))
         setIsError(true)
       }
     }
@@ -99,18 +100,17 @@ function GameAdd() {
       history.push('/dashboard')
     } catch (err) {
       setFormErrors(err.response.data)
-      // setFormErrors(err.response.data.errors)
     }
   }
   
   return (
-    
     <Container className="login" fluid>
       <Row>
         <Col className="outer-col"></Col>
         <Col xs={4} className="form-vertical-align">
           <div className='log-game-form-wrap'>
             <h2>Add New Game</h2>
+            
             {!playerNumKnown && 
         <Form name="numberOfPlayers" onSubmit={handleSub}>
           <Form.Group className="mb-3">
@@ -151,7 +151,11 @@ function GameAdd() {
               )}  
             </Form.Group>
 
-            <Button variant="none" className="btn-default" type="submit">
+            <Button 
+              variant="none" 
+              className="btn-default" 
+              type="submit"
+            >
               Next
             </Button>
           </Form>
@@ -189,12 +193,17 @@ function GameAdd() {
                 onChange={handleChange}/>
               {isError && (
                 <Form.Text className="text-muted">
-                  {totalPotDifference > 0 ? `Your payouts are £${totalPotDifference} bigger than the prize pool` : `Your payouts are £${totalPotDifference * -1} smaller than the prize pool` }
+                  {totalPotDifference > 0 ? `Your payouts are £${totalPotDifference} bigger than the prize pool` 
+                    : `Your payouts are £${totalPotDifference * -1} smaller than the prize pool` }
                 </Form.Text>
               )}  
             </Form.Group>
 
-            <Button variant="none" className="btn-default" type="submit">
+            <Button 
+              variant="none" 
+              className="btn-default" 
+              type="submit"
+            >
               Next
             </Button>
           </Form>
@@ -212,14 +221,18 @@ function GameAdd() {
                 defaultValue="def"
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['firstPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
 
@@ -233,14 +246,18 @@ function GameAdd() {
                 name="secondPlace"
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.thirdPlace) && 
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.thirdPlace) && 
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['secondPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
 
@@ -254,14 +271,18 @@ function GameAdd() {
                 {...register('thirdPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['thirdPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
 
@@ -276,14 +297,18 @@ function GameAdd() {
                 {...register('fourthPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
                   player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                  player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                  player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['fourthPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
             }
@@ -298,14 +323,18 @@ function GameAdd() {
                 {...register('fifthPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def"  disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) && player.id !== parseInt(formData.thirdPlace) && 
                   player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                  player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                  player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['fifthPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
             }
@@ -320,14 +349,18 @@ function GameAdd() {
                 {...register('sixthPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace && player.id !== parseInt(formData.thirdPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['sixthPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
             }
@@ -342,14 +375,18 @@ function GameAdd() {
                 {...register('seventhPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.thirdPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.thirdPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['seventhPlace'] && (
-                <Form.Text className="text-muted">A player is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A player is required
+                </Form.Text>
               )}
             </Form.Group>
             }
@@ -364,11 +401,13 @@ function GameAdd() {
                 {...register('eighthPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.thirdPlace) && player.id !== parseInt(formData.ninthPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.thirdPlace) && player.id !== parseInt(formData.ninthPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['eighthPlace'] && (
                 <Form.Text className="text-muted">A player is required</Form.Text>
@@ -386,11 +425,13 @@ function GameAdd() {
                 {...register('ninthPlace', { required: true })}
                 onChange={handleChange}>
                 <option value="def" disabled hidden>Select player</option>
-                {playerList.filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
+                {playerList.filter(player => player.userId === userId)
+                  .filter(player => player.id !== parseInt(formData.firstPlace) && player.id !== parseInt(formData.secondPlace) &&
                 player.id !== parseInt(formData.fourthPlace) && player.id !== parseInt(formData.fifthPlace) && player.id !== parseInt(formData.sixthPlace) && 
-                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.thirdPlace)).map(player => (
-                  <option key={player.id} value={player.id}>{player.name}</option>
-                ))}
+                player.id !== parseInt(formData.seventhPlace) && player.id !== parseInt(formData.eighthPlace) && player.id !== parseInt(formData.thirdPlace))
+                  .map(player => (
+                    <option key={player.id} value={player.id}>{player.name}</option>
+                  ))}
               </Form.Control>
               {formErrors['ninthPlace'] && (
                 <Form.Text className="text-muted">A player is required</Form.Text>
@@ -407,7 +448,9 @@ function GameAdd() {
                 {...register('date')}
               />
               {formErrors['date'] && (
-                <Form.Text className="text-muted">A valid date is required</Form.Text>
+                <Form.Text 
+                  className="text-muted">A valid date is required
+                </Form.Text>
               )}
             </Form.Group>
             <Form.Group className="mb-3">
@@ -420,10 +463,15 @@ function GameAdd() {
                 {...register('name')}
               />
               {formErrors['name'] && (
-                <Form.Text className="text-muted">A name is required for the game</Form.Text>
+                <Form.Text 
+                  className="text-muted">A name is required for the game
+                </Form.Text>
               )}
             </Form.Group>
-            <Button variant="none" className="btn-default" type="submit">
+            <Button 
+              variant="none" 
+              className="btn-default" 
+              type="submit">
             Add Game
             </Button>
           </Form>
