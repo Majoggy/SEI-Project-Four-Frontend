@@ -9,7 +9,7 @@ Home Game Tracker is an application designed to solve a real-world problem - itâ
 Home Game Tracker is a full-stack application, using React for the frontend, and Python and Django for the backend. It was submitted as my fourth project for General Assemblyâ€™s Software Engineering Course, 
 built and delivered solo over 8 days.
 
-You can find the project deployed using Heroku/Netlify, here.
+You can find the project deployed using Heroku/Netlify, [here](https://home-game-tracker.netlify.app/).
 
 ## Brief
 
